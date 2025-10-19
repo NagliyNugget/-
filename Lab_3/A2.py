@@ -7,6 +7,9 @@ errors = ""
 if len(password) != 8:
     errors = errors + 'Длина пароля не равна 8 \n'
     isValid = False
+if password.lower() == password:
+    errors = errors + 'Отсутствуют заглавные буквы \n'
+    isValid = False
 if isValid == True:
     print("Надежный пароль")
 else:
