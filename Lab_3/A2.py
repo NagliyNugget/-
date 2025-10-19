@@ -10,6 +10,12 @@ if len(password) != 8:
 if password.lower() == password:
     errors = errors + 'Отсутствуют заглавные буквы \n'
     isValid = False
+if password.upper() == password:
+    errors = errors + 'Отсутствуют строчные буквы \n'
+    isValid = False
+if not any(map(str.isdigit, password)):
+    errors = errors + 'Отсутствуют цифры \n'
+    isValid = False
 if isValid == True:
     print("Надежный пароль")
 else:
