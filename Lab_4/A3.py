@@ -5,3 +5,10 @@ if len(packets) < 5:
 
 if not all(char in '01' for char in packets):
         print("Ошибка: Используйте только символы '0' и '1'!")
+
+total_packets = len(packets)
+
+lost_packets = packets.count('0')
+
+print(f"Общее число пакетов: {total_packets}")
+print(f"Число потерянных пакетов: {lost_packets}")
