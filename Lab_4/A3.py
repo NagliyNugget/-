@@ -20,6 +20,21 @@ for packet in packets:
     else:
         streak = 0
 
+loss_percent = (lost_packets / total_packets) * 100
+
+if loss_percent <= 1:
+    quality = "Отличное качество"
+elif loss_percent <= 5:
+    quality = "Хорошее качество"
+elif loss_percent <= 10:
+    quality = "Удовлетворительное качество"
+elif loss_percent <= 20:
+    quality = "Плохое качество"
+elif loss_percent > 20:
+    quality = "Критическое состояние сети"
+
 print(f"Общее число пакетов: {total_packets}")
 print(f"Число потерянных пакетов: {lost_packets}")
 print(f"Длина самой длинной последовательности потерянных пакетов: {max_streak}")
+print(f"Процент потерь: {loss_percent:.1f}%")
+print(f"Качество связи: {quality}")
