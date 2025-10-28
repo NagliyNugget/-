@@ -6,14 +6,13 @@ def IsValidNumber(cardNumber):
 
 def getCheckSum(cardNumber):
     checkSum = 0
-    for i in reversed(range(0, len(cardNumber) - 1, 2)):
-        product = int(cardNumber[i]) * 2
-        if product > 9:
-            checkSum = checkSum + 1 + product - 10
-        else:
-            checkSum = checkSum + product
-    for i in reversed(range(1, len(cardNumber) + 1, 2)):
-        checkSum += int(cardNumber[i])
+    for i, char in enumerate(reversed(cardNumber)):
+        digit = int(char)
+        if i % 2 == 1:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        checkSum += digit
     return checkSum
 
 
